@@ -8,14 +8,22 @@ import androidx.room.PrimaryKey;
 public class EntityClass {
     @PrimaryKey(autoGenerate = true)
     int id;
+    @ColumnInfo(name = "eventidmascota")
+    String eventidmascota;
     @ColumnInfo(name = "eventname")
     String eventname;
     @ColumnInfo(name = "eventdate")
     String eventdate;
     @ColumnInfo(name = "eventtime")
-
     String eventtime;
 
+    public String getEventidmascota() {
+        return eventidmascota;
+    }
+
+    public void setEventidmascota(String eventidmascota) {
+        this.eventidmascota = eventidmascota;
+    }
 
     public String getEventname() {
         return eventname;

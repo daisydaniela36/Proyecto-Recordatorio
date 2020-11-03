@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import androidx.room.Query;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
     EditText editext_message;
     String timeTonotify;
     DatabaseClass databaseClass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +70,13 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
             if (btn_time.getText().toString().equals("Seleccione Hora") || btn_date.getText().toString().equals("Seleccione Fecha")) {
                 Toast.makeText(this, "Porfavor seleccione fecha y hora", Toast.LENGTH_SHORT).show();
             } else {
+
+                String id3 = getIntent().getStringExtra("id3");
                 EntityClass entityClass = new EntityClass();
                 String value = (editext_message.getText().toString().trim());
                 String date = (btn_date.getText().toString().trim());
                 String time = (btn_time.getText().toString().trim());
+                entityClass.setEventidmascota(id3);
                 entityClass.setEventdate(date);
                 entityClass.setEventname(value);
                 entityClass.setEventtime(time);

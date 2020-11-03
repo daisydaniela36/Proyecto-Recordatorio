@@ -9,20 +9,23 @@ import android.widget.Button;
 import com.example.myproyectomascotas.Adapter.EventAdapter;
 import com.example.myproyectomascotas.Database.DatabaseClass;
 import com.example.myproyectomascotas.Database.EntityClass;
-import java.util.List;
 
+import java.util.List;
 
 public class RecordatorioActivity extends AppCompatActivity implements View.OnClickListener {
     Button createEvent;
     EventAdapter eventAdapter;
     RecyclerView recyclerview;
     DatabaseClass databaseClass;
+    String id2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recordatorio);
+
+        id2 = getIntent().getStringExtra("id2");
         createEvent = findViewById(R.id.btn_createEvent);
         recyclerview = findViewById(R.id.recyclerview);
         createEvent.setOnClickListener(this);
@@ -37,7 +40,7 @@ public class RecordatorioActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void setAdapter() {
-        List<EntityClass> classList = databaseClass.EventDao().getAllData();
+        List<EntityClass> classList = databaseClass.EventDao().getAllData(id2);
         eventAdapter = new EventAdapter(getApplicationContext(), classList);
         recyclerview.setAdapter(eventAdapter);
     }
@@ -50,7 +53,8 @@ public class RecordatorioActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void goToCreateEventActivity() {
-        Intent intent = new Intent(getApplicationContext(), CreateEvent.class);
-        startActivity(intent);
+        Intent i = new Intent(getApplicationContext(), CreateEvent.class);
+        i.putExtra("id3", id2);
+        startActivity(i);
     }
 }

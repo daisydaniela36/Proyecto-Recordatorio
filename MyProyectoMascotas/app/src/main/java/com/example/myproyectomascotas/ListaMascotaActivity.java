@@ -70,7 +70,7 @@ public class ListaMascotaActivity extends AppCompatActivity {
                 i.putExtra("tipoAnimal", m.getTipo_Mascota());
                 i.putExtra("sexo", m.getSexo());
 
-                System.out.println(m.getNombre());
+                System.out.println(m.getId());
 
                 startActivity(i);
 
