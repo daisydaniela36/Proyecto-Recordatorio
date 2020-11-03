@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "70933377826",
+    "firebase_url": "https://myproyectmascota.firebaseio.com",
+    "project_id": "myproyectmascota",
+    "storage_bucket": "myproyectmascota.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70933377826:android:402c6ca0a167568059ab7b",
+        "android_client_info": {
+          "package_name": "com.example.myproyectomascotas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70933377826-roo1vtbluqq5c9r9t7m6f39peimf3qp3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaR8PYdCiOKp2Vjq3TDx_AzqbOJZk28gM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70933377826-roo1vtbluqq5c9r9t7m6f39peimf3qp3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

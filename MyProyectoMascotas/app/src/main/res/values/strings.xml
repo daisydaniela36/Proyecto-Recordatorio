@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MyProyectoMascotas</string>
+
+    <string-array name="tipoMascota">
+        <item>Seleccione</item>
+        <item>Gato</item>
+        <item>Perro</item>
+        <item>Conejo</item>
+    </string-array>
+
+    <string-array name="sexo">
+        <item>Seleccione</item>
+        <item>Macho</item>
+        <item>Hembra</item>
+    </string-array>
+
+</resources>
