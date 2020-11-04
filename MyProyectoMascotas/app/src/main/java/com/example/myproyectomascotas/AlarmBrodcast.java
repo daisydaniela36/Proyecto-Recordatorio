@@ -30,6 +30,7 @@ public class AlarmBrodcast extends BroadcastReceiver {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "notify_001");
 
+
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_layout);
         contentView.setImageViewResource(R.id.image, R.mipmap.ic_launcher);
         PendingIntent pendingSwitchIntent = PendingIntent.getBroadcast(context, 0, intent, 0);

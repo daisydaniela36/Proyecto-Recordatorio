@@ -22,6 +22,7 @@
             android:textColor="@color/green"
             android:textSize="20dp"
             android:textStyle="bold" />
+
     </RelativeLayout>
 
 
@@ -33,6 +34,16 @@
         android:layout_marginTop="10dp"
         android:hint="Ingrese Mensaje"
         android:layout_height="wrap_content"/>
+
+    <Spinner
+        android:id="@+id/spn_Rciclo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:entries="@array/Ciclo"
+        android:padding="10dp" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

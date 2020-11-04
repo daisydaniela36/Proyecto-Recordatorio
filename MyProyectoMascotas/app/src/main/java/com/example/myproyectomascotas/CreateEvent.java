@@ -34,12 +34,18 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
     EditText editext_message;
     String timeTonotify;
     DatabaseClass databaseClass;
+    private AlarmManager alarmMgr;
+    private PendingIntent alarmIntent;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
+
+
+
+
         btn_time = findViewById(R.id.btn_time);
         btn_date = findViewById(R.id.btn_date);
         btn_done = findViewById(R.id.btn_done);
@@ -87,6 +93,11 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
     }
 
     private void selectTime() {
+        Context context = this;
+        alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, AlarmBrodcast.class);
+        alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
@@ -97,11 +108,18 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
                 btn_time.setText(FormatTime(i, i1));
             }
         }, hour, minute, false);
+
+
+
+        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, alarmIntent);
         timePickerDialog.show();
 
     }
 
     private void selectDate() {
+
+
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
