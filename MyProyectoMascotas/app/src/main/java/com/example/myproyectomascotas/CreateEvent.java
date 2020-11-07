@@ -34,17 +34,15 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
     EditText editext_message;
     String timeTonotify;
     DatabaseClass databaseClass;
-    private AlarmManager alarmMgr;
-    private PendingIntent alarmIntent;
 
+    AlarmManager am;
+    AlarmManager alarmMgr;
+    PendingIntent pendingIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
-
-
-
 
         btn_time = findViewById(R.id.btn_time);
         btn_date = findViewById(R.id.btn_date);
@@ -87,20 +85,22 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
                 entityClass.setEventname(value);
                 entityClass.setEventtime(time);
                 databaseClass.EventDao().insertAll(entityClass);
+
                 setAlarm(value, date, time);
             }
         }
     }
 
     private void selectTime() {
-        Context context = this;
-        alarmMgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, AlarmBrodcast.class);
-        alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+
+        alarmMgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
 
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
+        calendar.setTimeInMillis(System.currentTimeMillis());
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -109,21 +109,17 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
             }
         }, hour, minute, false);
 
-
-
-        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY, alarmIntent);
         timePickerDialog.show();
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 2, alarmIntent);
 
     }
 
     private void selectDate() {
-
-
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -176,22 +172,23 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
     }
 
     private void setAlarm(String text, String date, String time) {
-        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
+        am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
+
         intent.putExtra("event", text);
         intent.putExtra("time", date);
         intent.putExtra("date", time);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+        pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+
         String dateandtime = date + " " + timeTonotify;
         DateFormat formatter = new SimpleDateFormat("d-M-yyyy hh:mm");
         try {
             Date date1 = formatter.parse(dateandtime);
-            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
-
+            am.set(AlarmManager.RTC_WAKEUP,date1.getTime(), pendingIntent);
         } catch (ParseException e) {
             e.printStackTrace();
+
         }
 
         finish();

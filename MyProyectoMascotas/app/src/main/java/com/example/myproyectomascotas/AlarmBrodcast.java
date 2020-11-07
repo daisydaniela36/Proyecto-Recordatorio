@@ -55,7 +55,7 @@ public class AlarmBrodcast extends BroadcastReceiver {
         }
 
         Notification notification = mBuilder.build();
-        notificationManager.notify(1, notification);
+        notificationManager.notify(2, notification);
 
 
     }
