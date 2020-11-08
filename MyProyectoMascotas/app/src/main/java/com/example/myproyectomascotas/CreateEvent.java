@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import androidx.room.Query;
@@ -28,16 +29,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class CreateEvent extends AppCompatActivity implements View.OnClickListener {
+    ExecutorService executorService = Executors.newFixedThreadPool(4);
     Button btn_time, btn_date, btn_done;
     EditText editext_message;
+    Spinner spn_Rciclo;
     String timeTonotify;
     DatabaseClass databaseClass;
 
     AlarmManager am;
     AlarmManager alarmMgr;
     PendingIntent pendingIntent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,8 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
         btn_time = findViewById(R.id.btn_time);
         btn_date = findViewById(R.id.btn_date);
         btn_done = findViewById(R.id.btn_done);
+        spn_Rciclo = findViewById(R.id.spn_Rciclo);
+
         editext_message = findViewById(R.id.editext_message);
         btn_time.setOnClickListener(this);
         btn_date.setOnClickListener(this);
@@ -58,7 +66,17 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if (view == btn_time) {
-            selectTime();
+            String selec = spn_Rciclo.getSelectedItem().toString();
+            switch (selec) {
+                case "Diario": selectTimeD();
+                    break;
+                case "Semanal": selectTimeS();
+                    break;
+                case "Mensual": selectTimeM();
+                    break;
+                case "Dia Especifico": selectTime();
+                    break;
+            }
         } else if (view == btn_date) {
             selectDate();
         } else {
@@ -91,8 +109,7 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    private void selectTime() {
-
+    private void selectTimeD() {
         alarmMgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
         PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
@@ -111,6 +128,67 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
 
         timePickerDialog.show();
         alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 2, alarmIntent);
+
+    }
+    private void selectTimeS() {
+        alarmMgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
+
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                timeTonotify = i + ":" + i1;
+                btn_time.setText(FormatTime(i, i1));
+            }
+        }, hour, minute, false);
+
+        timePickerDialog.show();
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 10080, alarmIntent);
+
+    }
+
+    private void selectTimeM() {
+        alarmMgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
+
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                timeTonotify = i + ":" + i1;
+                btn_time.setText(FormatTime(i, i1));
+            }
+        }, hour, minute, false);
+
+        timePickerDialog.show();
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 43800, alarmIntent);
+
+    }
+
+    private void selectTime() {
+
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                timeTonotify = i + ":" + i1;
+                btn_time.setText(FormatTime(i, i1));
+            }
+        }, hour, minute, false);
+
+        timePickerDialog.show();
 
     }
 
