@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import androidx.room.Query;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,50 +28,45 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class CreateEvent extends AppCompatActivity implements View.OnClickListener {
-    ExecutorService executorService = Executors.newFixedThreadPool(4);
     Button btn_time, btn_date, btn_done;
     EditText editext_message;
     Spinner spn_Rciclo;
     String timeTonotify;
     DatabaseClass databaseClass;
-
-    AlarmManager am;
-    AlarmManager alarmMgr;
-    PendingIntent pendingIntent;
-
+    private String value;
+    private String date;
+    private String time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
-
         btn_time = findViewById(R.id.btn_time);
         btn_date = findViewById(R.id.btn_date);
         btn_done = findViewById(R.id.btn_done);
         spn_Rciclo = findViewById(R.id.spn_Rciclo);
-
         editext_message = findViewById(R.id.editext_message);
         btn_time.setOnClickListener(this);
         btn_date.setOnClickListener(this);
         btn_done.setOnClickListener(this);
         databaseClass = DatabaseClass.getDatabase(getApplicationContext());
-
     }
 
     @Override
     public void onClick(View view) {
         if (view == btn_time) {
             String selec = spn_Rciclo.getSelectedItem().toString();
+            String value = (editext_message.getText().toString().trim());
+            String date = (btn_date.getText().toString().trim());
+            String time = (btn_time.getText().toString().trim());
             switch (selec) {
-                case "Diario": selectTimeD();
+                case "Diario": selectTimeD(value,date,time);
                     break;
-                case "Semanal": selectTimeS();
+                case "Semanal": selectTimeS(value,date,time);
                     break;
-                case "Mensual": selectTimeM();
+                case "Mensual": selectTimeM(value,date,time);
                     break;
                 case "Dia Especifico": selectTime();
                     break;
@@ -95,9 +89,9 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
 
                 String id3 = getIntent().getStringExtra("id3");
                 EntityClass entityClass = new EntityClass();
-                String value = (editext_message.getText().toString().trim());
-                String date = (btn_date.getText().toString().trim());
-                String time = (btn_time.getText().toString().trim());
+                value = (editext_message.getText().toString().trim());
+                date = (btn_date.getText().toString().trim());
+                time = (btn_time.getText().toString().trim());
                 entityClass.setEventidmascota(id3);
                 entityClass.setEventdate(date);
                 entityClass.setEventname(value);
@@ -109,15 +103,23 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    private void selectTimeD() {
-        alarmMgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
+    private void selectTimeD(String text, String date, String time) {
+
+        AlarmManager alarmMgrD = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        Intent intent2 = new Intent(getApplicationContext(), AlarmBrodcast.class);
+
+
+        Calendar calendarD = Calendar.getInstance();
+        calendarD.get(Calendar.HOUR_OF_DAY);
+        calendarD.get(Calendar.MINUTE);
+        calendarD.setTimeInMillis(System.currentTimeMillis());
 
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
         calendar.setTimeInMillis(System.currentTimeMillis());
+
+
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -127,18 +129,37 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
         }, hour, minute, false);
 
         timePickerDialog.show();
-        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 2, alarmIntent);
+
+        intent2.putExtra("event", text);
+        intent2.putExtra("time", date);
+        intent2.putExtra("date", time);
+
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent2,  PendingIntent.FLAG_UPDATE_CURRENT);
+
+        alarmMgrD.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 1040, alarmIntent);
+        timePickerDialog.show();
 
     }
-    private void selectTimeS() {
-        alarmMgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
+    private void selectTimeS(String text, String date, String time) {
+        AlarmManager alarmMgrD = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        Intent intent2 = new Intent(getApplicationContext(), AlarmBrodcast.class);
+
+
+        Calendar calendarD = Calendar.getInstance();
+        calendarD.get(Calendar.HOUR_OF_DAY);
+        calendarD.get(Calendar.MINUTE);
+        calendarD.setTimeInMillis(System.currentTimeMillis());
 
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
-        calendar.setTimeInMillis(System.currentTimeMillis());
+
+        intent2.putExtra("event", text);
+        intent2.putExtra("time", date);
+        intent2.putExtra("date", time);
+
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent2, 0);
+
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -147,20 +168,33 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
             }
         }, hour, minute, false);
 
+
+
+        alarmMgrD.setRepeating(AlarmManager.RTC_WAKEUP, calendarD.getTimeInMillis(), 1000 * 60 * 2, alarmIntent);
         timePickerDialog.show();
-        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 10080, alarmIntent);
 
     }
 
-    private void selectTimeM() {
-        alarmMgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
+    private void selectTimeM(String text, String date, String time) {
+        AlarmManager alarmMgrD = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        Intent intent2 = new Intent(getApplicationContext(), AlarmBrodcast.class);
+
+
+        Calendar calendarD = Calendar.getInstance();
+        calendarD.get(Calendar.HOUR_OF_DAY);
+        calendarD.get(Calendar.MINUTE);
+        calendarD.setTimeInMillis(System.currentTimeMillis());
 
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
-        calendar.setTimeInMillis(System.currentTimeMillis());
+
+        intent2.putExtra("event", text);
+        intent2.putExtra("time", date);
+        intent2.putExtra("date", time);
+
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent2, 0);
+
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -169,17 +203,17 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
             }
         }, hour, minute, false);
 
+        alarmMgrD.setRepeating(AlarmManager.RTC_WAKEUP, calendarD.getTimeInMillis(), 1000 * 60 * 43800, alarmIntent);
         timePickerDialog.show();
-        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60 * 43800, alarmIntent);
 
     }
 
     private void selectTime() {
 
-        Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minute = calendar.get(Calendar.MINUTE);
-        calendar.setTimeInMillis(System.currentTimeMillis());
+        Calendar calendarT = Calendar.getInstance();
+        int hour = calendarT.get(Calendar.HOUR_OF_DAY);
+        int minute = calendarT.get(Calendar.MINUTE);
+        calendarT.setTimeInMillis(System.currentTimeMillis());
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -250,23 +284,23 @@ public class CreateEvent extends AppCompatActivity implements View.OnClickListen
     }
 
     private void setAlarm(String text, String date, String time) {
-        am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getApplicationContext(), AlarmBrodcast.class);
+
 
         intent.putExtra("event", text);
         intent.putExtra("time", date);
         intent.putExtra("date", time);
 
-        pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
-
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
         String dateandtime = date + " " + timeTonotify;
         DateFormat formatter = new SimpleDateFormat("d-M-yyyy hh:mm");
         try {
             Date date1 = formatter.parse(dateandtime);
-            am.set(AlarmManager.RTC_WAKEUP,date1.getTime(), pendingIntent);
+            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+
         } catch (ParseException e) {
             e.printStackTrace();
-
         }
 
         finish();

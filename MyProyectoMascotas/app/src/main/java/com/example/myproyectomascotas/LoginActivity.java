@@ -15,9 +15,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity2 extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     EditText  edt_VCorreo, edt_VContraseña;
-    Button btnIngresar;
+    Button btnIngresar,  btn_ir_crearCuenta;
 
     private FirebaseAuth firebaseAuth;
 
@@ -28,13 +28,14 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         edt_VCorreo = (EditText) findViewById(R.id.edt_VCorreo);
         edt_VContraseña = (EditText) findViewById(R.id.edt_VContraseña);
         btnIngresar = (Button) findViewById(R.id.btn_VIniciarSesion);
+        btn_ir_crearCuenta=findViewById(R.id.btn_ir_crearCuenta);
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,9 +48,17 @@ public class MainActivity2 extends AppCompatActivity {
                     loginUsuario();
 
                 }else{
-                    Toast.makeText(MainActivity2.this, "Complete los campos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Complete los campos", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+
+        btn_ir_crearCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
+                finish();
             }
         });
     }
@@ -59,10 +68,10 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    startActivity(new Intent(MainActivity2.this,ProfileActivity.class));
+                    startActivity(new Intent(LoginActivity.this,ProfileActivity.class));
                     finish();
                 }else{
-                    Toast.makeText(MainActivity2.this, "Correo o Contraseña incorrectos",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Correo o Contraseña incorrectos",Toast.LENGTH_SHORT).show();
                 }
             }
         });

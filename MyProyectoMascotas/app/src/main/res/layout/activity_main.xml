@@ -1,195 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/felpa"
     tools:context=".MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/amigos"
+        android:scaleType="centerCrop"
+        />
 
     <LinearLayout
-        android:layout_width="386dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
         android:orientation="vertical"
-        android:paddingTop="50dp">
+        android:background="#d8000000"
+        android:gravity="center"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="REGISTRAR DATOS"
-            android:textAlignment="center"
-            android:textColor="#DC0404"
-            android:textColorHint="#040303"
-            android:textSize="24sp"
-            android:textStyle="bold|italic" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="RUT:"
-                android:textColor="#F60505"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edt_Vrut"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#FA0202" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="NOMBRE:"
-                android:textColor="#F60303"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edt_Vnombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#F80202" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="DIRECCION:"
-                android:textColor="#FA0202"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edt_Vdireccion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#FA0303" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="TELEFONO:"
-                android:textColor="#FA0303"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edt_Vtelefono"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#FA0303" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="CORREO:"
-                android:textColor="#FA0202"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edt_Vcorreo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#FB0101" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="CONTRASEÑA:"
-                android:textColor="#FB0303"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edt_Vcontraseña"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:textColor="#FA0505" />
-        </LinearLayout>
+        <ImageView
+            android:layout_width="242dp"
+            android:layout_height="229dp"
+            android:layout_marginBottom="70dp"
+            android:background="@drawable/circulo_image"
+            android:padding="10dp"
+            android:src="@drawable/am" />
 
         <Button
-            android:id="@+id/btn_Vregistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:background="@drawable/ovalo"
-            android:text="REGISTRAR"
-            android:textColor="#FB0303"
-            android:textStyle="bold|italic" />
-
+            android:layout_marginRight="20dp"
+            android:id="@+id/ir_login"
+            android:background="@drawable/btn_redondeado_white"
+            android:layout_marginLeft="20dp"
+            android:textColor="#403f3f"
+            android:elevation="5dp"
+            android:layout_marginBottom="30dp"
+            android:textSize="16dp"
+            android:text="Inciar Sesión"/>
         <Button
-            android:id="@+id/btn_Vingresar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-
-            android:background="@drawable/ovalo"
-            android:text="INGRESAR CUENTA"
-            android:textColor="#F80202"
-            android:textStyle="bold|italic" />
+            android:layout_marginRight="20dp"
+            android:id="@+id/inicar_facebook"
+            android:background="@drawable/btn_facebook"
+            android:layout_marginLeft="20dp"
+            android:textColor="#fff"
+            android:elevation="5dp"
+            android:layout_marginBottom="30dp"
+            android:textSize="16dp"
+            android:text="Inciar con Facebook"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,6 @@ public class AlarmBrodcast extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Bundle bundle = intent.getExtras();
         String text = bundle.getString("event");
-        String date = bundle.getString("date") + " " + bundle.getString("time");
 
         //Click on Notification
 
@@ -36,7 +35,6 @@ public class AlarmBrodcast extends BroadcastReceiver {
         PendingIntent pendingSwitchIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
         contentView.setOnClickPendingIntent(R.id.flashButton, pendingSwitchIntent);
         contentView.setTextViewText(R.id.message, text);
-        contentView.setTextViewText(R.id.date, date);
         mBuilder.setSmallIcon(R.drawable.ic_alarm_white_24dp);
         mBuilder.setAutoCancel(true);
         mBuilder.setOngoing(true);
