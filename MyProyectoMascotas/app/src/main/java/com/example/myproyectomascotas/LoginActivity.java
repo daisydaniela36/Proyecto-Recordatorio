@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,12 +19,14 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
     EditText  edt_VCorreo, edt_VContraseña;
     Button btnIngresar,  btn_ir_crearCuenta;
+    TextView txt_Rcontraseña;
 
     private FirebaseAuth firebaseAuth;
 
 
     private String correo;
     private String contraseña;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,20 @@ public class LoginActivity extends AppCompatActivity {
 
         edt_VCorreo = (EditText) findViewById(R.id.edt_VCorreo);
         edt_VContraseña = (EditText) findViewById(R.id.edt_VContraseña);
-        btnIngresar = (Button) findViewById(R.id.btn_VIniciarSesion);
+        txt_Rcontraseña = (TextView) findViewById(R.id.txt_Rcontraseña);
+        btnIngresar = (Button) findViewById(R.id.btn_Rcontraseña);
         btn_ir_crearCuenta=findViewById(R.id.btn_ir_crearCuenta);
+
+
+        txt_Rcontraseña.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,ResetPasswordActivity.class));
+                finish();
+            }
+        });
+
+
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
