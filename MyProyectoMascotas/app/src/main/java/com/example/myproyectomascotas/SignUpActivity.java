@@ -121,7 +121,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onStart();
 
         if(firebaseAuth.getCurrentUser() != null){
-            startActivity(new Intent(SignUpActivity.this, ProfileActivity.class));
+            startActivity(new Intent(SignUpActivity.this, PerfilActivity.class));
             finish();
         }
     }

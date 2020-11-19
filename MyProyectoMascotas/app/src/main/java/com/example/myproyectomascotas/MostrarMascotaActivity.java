@@ -61,20 +61,6 @@ public class MostrarMascotaActivity extends AppCompatActivity {
         spn_CtipoAnimal.setSelection(getIndexSpinner(spn_CtipoAnimal, tipoM));
         spn_Csexo.setSelection(getIndexSpinner(spn_Csexo, sexo));
 
-
-        btn_Volver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MostrarMascotaActivity.this, ListaMascotaActivity.class));
-
-
-                finish();
-
-            }
-        });
-
-
-
         btn_Recordatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

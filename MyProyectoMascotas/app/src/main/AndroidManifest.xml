@@ -20,9 +20,6 @@
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".RecordatorioActivity" />
         <activity android:name=".MostrarMascotaActivity" />
-        <activity android:name=".ListaMascotaActivity" />
-        <activity android:name=".RegistrarMascotaActivity" />
-        <activity android:name=".ProfileActivity" />
         <activity android:name=".NotificationMessage" />
         <activity android:name=".CreateEvent" />
         <activity android:name=".LoginActivity" />
