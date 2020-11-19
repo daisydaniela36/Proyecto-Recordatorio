@@ -13,7 +13,11 @@
         android:label="L - F - L - F"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResetPasswordActivity"></activity>
+        <activity
+            android:name=".PerfilActivity"
+            android:label="@string/title_activity_perfil"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".RecordatorioActivity" />
         <activity android:name=".MostrarMascotaActivity" />
         <activity android:name=".ListaMascotaActivity" />

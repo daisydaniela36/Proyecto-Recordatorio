@@ -2,6 +2,7 @@ package com.example.myproyectomascotas;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.ui.AppBarConfiguration;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private TextView txt_Bienvenido;
     private DatabaseReference mDataBase;
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class ProfileActivity extends AppCompatActivity {
         btn_CCerrarSesion = (Button) findViewById(R.id.btnCerrarSesion);
         btnAgregarMascota = (Button) findViewById(R.id.btnAgregarMascota);
         btnListarMascota = (Button) findViewById(R.id.btn_Listar);
+
+
 
         btn_CCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +72,9 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         getUser();
+
+
+
     }
 
     private void getUser(){
