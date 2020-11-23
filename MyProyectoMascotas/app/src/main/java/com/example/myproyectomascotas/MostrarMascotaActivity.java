@@ -1,5 +1,6 @@
 package com.example.myproyectomascotas;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,9 +9,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.example.myproyectomascotas.ui.gallery.GalleryFragment;
+import com.example.myproyectomascotas.ui.slideshow.SlideshowFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class MostrarMascotaActivity extends AppCompatActivity {
 
@@ -20,10 +32,10 @@ public class MostrarMascotaActivity extends AppCompatActivity {
     private EditText edt_Cespecie;
     private Spinner spn_CtipoAnimal;
     private Spinner spn_Csexo;
-    private Button btn_Volver;
     private FirebaseAuth firebaseAuth;
-    private int countMascota;
     private Button btn_Recordatorio;
+    private Button btn_Editar;
+    private Button btn_Eliminar;
     String id;
 
     private DatabaseReference mDataBase;
@@ -39,9 +51,11 @@ public class MostrarMascotaActivity extends AppCompatActivity {
         edt_Cespecie = (EditText) findViewById(R.id.edt_Especie);
         spn_CtipoAnimal = (Spinner) findViewById(R.id.spn_tipoAnimal);
         spn_Csexo = (Spinner) findViewById(R.id.spn_sexo);
-        btn_Volver = (Button) findViewById(R.id.btn_Volver);
+        btn_Editar = (Button) findViewById(R.id.btn_Editar);
+        btn_Eliminar = (Button) findViewById(R.id.btn_Eliminar);
         btn_Recordatorio = (Button) findViewById(R.id.btn_AgregarRecordatorio);
         firebaseAuth = FirebaseAuth.getInstance();
+        mDataBase = FirebaseDatabase.getInstance().getReference();
 
         id = getIntent().getStringExtra("id");
         String nombreM = getIntent().getStringExtra("nombre");
@@ -50,9 +64,6 @@ public class MostrarMascotaActivity extends AppCompatActivity {
         String especie = getIntent().getStringExtra("especie");
         String tipoM = getIntent().getStringExtra("tipoAnimal");
         String sexo = getIntent().getStringExtra("sexo");
-
-
-
 
         edt_Cnombre.setText(nombreM);
         edt_CnumeroChip.setText(numeroChip);
@@ -74,6 +85,42 @@ public class MostrarMascotaActivity extends AppCompatActivity {
             }
         });
 
+        btn_Editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id2 = firebaseAuth.getCurrentUser().getUid();
+
+                String nombreE = edt_Cnombre.getText().toString();
+                String numeroChipE = edt_CnumeroChip.getText().toString();
+                String fechaE = edt_Cfecha.getText().toString();
+                String especieE = edt_Cespecie.getText().toString();
+                String tipoMascotaE = spn_CtipoAnimal.getSelectedItem().toString();
+                String sexoE = spn_Csexo.getSelectedItem().toString();
+
+                Map<String, Object> map = new HashMap<>();
+                map.put("nombre", nombreE);
+                map.put("numeroChip", numeroChipE);
+                map.put("fecha", fechaE);
+                map.put("especie", especieE);
+                map.put("tipo_Mascota", tipoMascotaE);
+                map.put("sexo", sexoE);
+
+
+                mDataBase.child("usuario").child(id2).child("mascota").child(id).updateChildren(map);
+
+            }
+        });
+
+        btn_Eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id2 = firebaseAuth.getCurrentUser().getUid();
+                mDataBase.child("usuario").child(id2).child("mascota").child(id).removeValue();
+
+
+            }
+        });
+
     }
 
     public static int getIndexSpinner(Spinner spinner, String myString)
@@ -87,7 +134,6 @@ public class MostrarMascotaActivity extends AppCompatActivity {
         }
         return index;
     }
-
 
 }
 

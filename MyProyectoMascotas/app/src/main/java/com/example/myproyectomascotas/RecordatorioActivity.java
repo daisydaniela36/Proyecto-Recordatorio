@@ -9,7 +9,6 @@ import android.widget.Button;
 import com.example.myproyectomascotas.Adapter.EventAdapter;
 import com.example.myproyectomascotas.Database.DatabaseClass;
 import com.example.myproyectomascotas.Database.EntityClass;
-
 import java.util.List;
 
 public class RecordatorioActivity extends AppCompatActivity implements View.OnClickListener {

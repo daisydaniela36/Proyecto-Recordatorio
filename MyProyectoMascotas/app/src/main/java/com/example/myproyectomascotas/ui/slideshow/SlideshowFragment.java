@@ -84,7 +84,8 @@ public class SlideshowFragment extends Fragment {
                     Mascota m = objSnaoshot.getValue(Mascota.class);
                     lista_mascota.add(m);
 
-                    arrayadaptermascota = new ArrayAdapter<Mascota>(getActivity(), android.R.layout.simple_list_item_1, lista_mascota);                    lbl_Mascota.setAdapter(arrayadaptermascota);
+                    arrayadaptermascota = new ArrayAdapter<Mascota>(getActivity(), android.R.layout.simple_list_item_1, lista_mascota);
+                    lbl_Mascota.setAdapter(arrayadaptermascota);
                 }
             }
             @Override
