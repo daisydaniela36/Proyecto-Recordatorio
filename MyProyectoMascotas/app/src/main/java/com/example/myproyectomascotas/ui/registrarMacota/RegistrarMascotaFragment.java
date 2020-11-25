@@ -1,4 +1,4 @@
-package com.example.myproyectomascotas.ui.gallery;
+package com.example.myproyectomascotas.ui.registrarMacota;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class GalleryFragment extends Fragment {
+public class RegistrarMascotaFragment extends Fragment {
 
     private EditText edt_Cnombre;
     private EditText edt_CnumeroChip;
@@ -32,7 +32,7 @@ public class GalleryFragment extends Fragment {
     private DatabaseReference bdMascota;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        View root = inflater.inflate(R.layout.fragment_registrar_mascota, container, false);
 
         firebaseAuth = FirebaseAuth.getInstance();
 

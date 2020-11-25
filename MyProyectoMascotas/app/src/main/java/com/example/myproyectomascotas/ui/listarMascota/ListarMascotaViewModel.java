@@ -1,16 +1,16 @@
-package com.example.myproyectomascotas.ui.gallery;
+package com.example.myproyectomascotas.ui.listarMascota;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class ListarMascotaViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public ListarMascotaViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is slideshow fragment");
     }
 
     public LiveData<String> getText() {

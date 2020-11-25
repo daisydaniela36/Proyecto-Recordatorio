@@ -33,5 +33,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_agregar">Agregar Mascota</string>
     <string name="menu_lista">Lista de Mascotas</string>
+    <string name="cuenta">Cuenta</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.example.myproyectomascotas.ui.slideshow;
+package com.example.myproyectomascotas.ui.listarMascota;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SlideshowFragment extends Fragment {
+public class ListarMascotaFragment extends Fragment {
 
     private List<Mascota> lista_mascota = new ArrayList<Mascota>();
     ArrayAdapter<Mascota> arrayadaptermascota;
@@ -35,7 +35,7 @@ public class SlideshowFragment extends Fragment {
     private DatabaseReference mDataBase;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        View root = inflater.inflate(R.layout.fragment_listar_mascota, container, false);
 
 
         lbl_Mascota = (ListView) root.findViewById(R.id.lbl_Mascota);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MostrarMascotaActivity">
+    tools:context=".ui.registrarMacota.RegistrarMascotaFragment">
 
     <LinearLayout
         android:layout_width="386dp"
@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DATOS"
+            android:text="REGISTRAR MASCOTA"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
             android:textColorLink="#FFFFFF"
@@ -168,48 +168,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_Editar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="EDITAR" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_Eliminar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="ELIMINAR" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_AgregarRecordatorio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="AGREGAR RECORDATORIO" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="150dp"
             android:orientation="horizontal">
 
             <Button
@@ -217,10 +177,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="VOLVER"
+                android:text="Registrar"
                 android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
 
     </LinearLayout>
-
 </RelativeLayout>

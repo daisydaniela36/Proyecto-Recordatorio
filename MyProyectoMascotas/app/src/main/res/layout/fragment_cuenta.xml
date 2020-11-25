@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment">
+    tools:context=".ui.cuenta.CuentaFragment">
 
     <LinearLayout
         android:layout_width="386dp"
@@ -16,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="REGISTRAR MASCOTA"
+            android:text="DATOS"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
             android:textColorLink="#FFFFFF"
@@ -31,7 +30,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/edt"
                 android:layout_width="64dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
@@ -40,7 +39,7 @@
                 android:textColorLink="#FFFFFF" />
 
             <EditText
-                android:id="@+id/edt_Nombre"
+                android:id="@+id/edt_Uombre"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -62,11 +61,11 @@
                 android:layout_width="64dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:text="NUMERO CHIP:"
+                android:text="DIRECCION:"
                 android:textColor="@color/colorPrimaryDark" />
 
             <EditText
-                android:id="@+id/edt_NumeroChip"
+                android:id="@+id/edt_Udireccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -85,63 +84,17 @@
                 android:layout_width="64dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="FECHA DE NACIMIENTO:"
+                android:text="TELEFONO:"
                 android:textColor="@color/colorPrimaryDark" />
 
             <EditText
-                android:id="@+id/edt_Fecha"
+                android:id="@+id/edt_Utelefono"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="date"
+                android:inputType="number"
                 android:textColor="@color/colorPrimaryDark" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="ESPECIE:"
-                android:textColor="@color/colorPrimaryDark" />
-
-            <EditText
-                android:id="@+id/edt_Especie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="@color/colorPrimaryDark" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="TIPO DE ANIMAL:"
-                android:textColor="@color/colorPrimaryDark" />
-
-            <Spinner
-                android:id="@+id/spn_tipoAnimal"
-                android:layout_width="211dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:entries="@array/tipoMascota"
-                android:scrollbarThumbHorizontal="@color/colorPrimaryDark" />
         </LinearLayout>
 
         <LinearLayout
@@ -150,36 +103,89 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView20"
-                android:layout_width="75dp"
+                android:id="@+id/textView18"
+                android:layout_width="64dp"
                 android:layout_height="41dp"
                 android:layout_weight="1"
-                android:text="SEXO:"
+                android:text="CORREO:"
                 android:textColor="@color/colorPrimaryDark" />
 
-            <Spinner
-                android:id="@+id/spn_sexo"
-                android:layout_width="217dp"
-                android:layout_height="match_parent"
+            <EditText
+                android:id="@+id/edt_Ucorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:entries="@array/sexo"
-                android:scrollbarThumbHorizontal="@color/colorPrimaryDark" />
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="64dp"
+                android:layout_height="41dp"
+                android:layout_weight="1"
+                android:text="CONTRASEÑA:"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <EditText
+                android:id="@+id/edt_Ucontraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:text="contraseña"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_Ueditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="EDITAR" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="150dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_Volver"
+                android:id="@+id/btn_Ueliminar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Registrar"
-                android:textColor="@color/colorPrimaryDark" />
+                android:text="ELIMINAR CUENTA" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_Ucambiar_contraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CAMBIAR CONTRASEÑA" />
         </LinearLayout>
 
     </LinearLayout>
-</RelativeLayout>
+</FrameLayout>

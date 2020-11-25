@@ -13,13 +13,19 @@
 
     <fragment
         android:id="@+id/nav_agregar"
-        android:name="com.example.myproyectomascotas.ui.gallery.GalleryFragment"
+        android:name="com.example.myproyectomascotas.ui.registrarMacota.RegistrarMascotaFragment"
         android:label="@string/menu_agregar"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_registrar_mascota" />
 
     <fragment
         android:id="@+id/nav_listar"
-        android:name="com.example.myproyectomascotas.ui.slideshow.SlideshowFragment"
+        android:name="com.example.myproyectomascotas.ui.listarMascota.ListarMascotaFragment"
         android:label="@string/menu_lista"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_listar_mascota" />
+
+    <fragment
+        android:id="@+id/nav_cuenta"
+        android:name="com.example.myproyectomascotas.ui.cuenta.CuentaFragment"
+        android:label="@string/cuenta"
+        tools:layout="@layout/fragment_cuenta" />
 </navigation>
