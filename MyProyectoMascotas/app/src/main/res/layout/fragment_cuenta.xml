@@ -5,22 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.cuenta.CuentaFragment">
 
-    <LinearLayout
-        android:layout_width="386dp"
+    <ImageView
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="12dp"
-        android:orientation="vertical"
-        android:paddingTop="50dp">
+        android:scaleType="centerCrop"
+        android:src="@drawable/perro" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DATOS"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorLink="#FFFFFF"
-            android:textCursorDrawable="@color/common_google_signin_btn_text_dark_pressed"
-            android:textSize="24sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CD000000"
+        android:gravity="center"
+        android:orientation="vertical">
 
 
         <LinearLayout
@@ -33,9 +29,10 @@
                 android:id="@+id/edt"
                 android:layout_width="64dp"
                 android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="NOMBRE:"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF" />
 
             <EditText
@@ -45,9 +42,13 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorPrimaryDark"
+                android:scrollbarThumbHorizontal="@color/white"
+                android:scrollbarThumbVertical="@color/white"
+                android:textColor="@color/white"
                 android:textColorHighlight="#FFFFFF"
-                android:textColorLink="#FFFFFF" />
+                android:textColorHint="#F4F1F1"
+                android:textColorLink="#FFFFFF"
+                android:textCursorDrawable="@color/white" />
 
         </LinearLayout>
 
@@ -60,9 +61,10 @@
                 android:id="@+id/textView16"
                 android:layout_width="64dp"
                 android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="DIRECCION:"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/edt_Udireccion"
@@ -71,7 +73,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -83,9 +85,10 @@
                 android:id="@+id/textView17"
                 android:layout_width="64dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="TELEFONO:"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/edt_Utelefono"
@@ -94,7 +97,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -106,9 +109,10 @@
                 android:id="@+id/textView18"
                 android:layout_width="64dp"
                 android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="CORREO:"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/edt_Ucorreo"
@@ -117,7 +121,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -129,9 +133,10 @@
                 android:id="@+id/textView19"
                 android:layout_width="64dp"
                 android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="CONTRASEÑA:"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/edt_Ucontraseña"
@@ -141,7 +146,7 @@
                 android:ems="10"
                 android:inputType="textPassword"
                 android:text="contraseña"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white" />
         </LinearLayout>
 
 
@@ -154,10 +159,16 @@
 
             <Button
                 android:id="@+id/btn_Ueditar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="EDITAR" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_fondo_color"
+                android:elevation="5dp"
+                android:text="EDITAR"
+                android:textColor="#fff"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -168,10 +179,16 @@
 
             <Button
                 android:id="@+id/btn_Ueliminar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="ELIMINAR CUENTA" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_fondo_color"
+                android:elevation="5dp"
+                android:text="ELIMINAR CUENTA"
+                android:textColor="#fff"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -181,10 +198,16 @@
 
             <Button
                 android:id="@+id/btn_Ucambiar_contraseña"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="CAMBIAR CONTRASEÑA" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_fondo_color"
+                android:elevation="5dp"
+                android:text="CAMBIAR C0NTRASEÑA"
+                android:textColor="#fff"
+                android:textSize="16sp" />
         </LinearLayout>
 
     </LinearLayout>

@@ -6,23 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".ui.listarMascota.ListarMascotaFragment">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/perro" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#CD000000"
+        android:gravity="center"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LISTA DE MASCOTAS"
-            android:textAlignment="center"
-            android:textSize="24sp" />
 
         <ListView
             android:id="@+id/lbl_Mascota"
             android:layout_width="match_parent"
-            android:layout_height="583dp" />
+            android:layout_height="583dp"
+            android:textAlignment="center" />
 
     </LinearLayout>
 </RelativeLayout>

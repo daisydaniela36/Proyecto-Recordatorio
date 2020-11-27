@@ -12,7 +12,22 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="DialogSpinner" parent="@android:style/Widget.Holo.Spinner">
+        <item name="android:spinnerItemStyle">@style/MySpinnerItem</item>
+    </style>
+
+    <style name="MySpinnerItem" parent="android:Widget.Holo.TextView.SpinnerItem">
+        <item name="android:textAppearance">@style/MyTextAppearanceSpinnerItem</item>
+    </style>
+
+    <style name="MyTextAppearanceSpinnerItem" parent="android:TextAppearance.Holo.Widget.TextView.SpinnerItem">
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

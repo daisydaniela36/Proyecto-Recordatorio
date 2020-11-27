@@ -46,7 +46,7 @@ public class RegistrarMascotaFragment extends Fragment {
         edt_Cespecie = (EditText) root.findViewById(R.id.edt_Especie);
         spn_CtipoAnimal = (Spinner) root.findViewById(R.id.spn_tipoAnimal);
         spn_Csexo = (Spinner) root.findViewById(R.id.spn_sexo);
-        btn_CregistrarM = (Button) root.findViewById(R.id.btn_Volver);
+        btn_CregistrarM = (Button) root.findViewById(R.id.btn_RegistrarM);
 
         btn_CregistrarM.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,10 +74,20 @@ public class RegistrarMascotaFragment extends Fragment {
             bdMascota.child(id).setValue(mascota);
 
             Toast.makeText(getActivity(), "Se registro correctamente", Toast.LENGTH_SHORT).show();
+            Limpiar();
 
         } else {
             Toast.makeText(getActivity(), "Debe completar los campos", Toast.LENGTH_SHORT).show();
 
         }
+    }
+
+    private void Limpiar(){
+        edt_Cnombre.setText("");
+        edt_CnumeroChip.setText("");
+        edt_Cfecha.setText("");
+        edt_Cespecie.setText("");
+        spn_CtipoAnimal.setSelection(0);
+        spn_Csexo.setSelection(0);
     }
 }

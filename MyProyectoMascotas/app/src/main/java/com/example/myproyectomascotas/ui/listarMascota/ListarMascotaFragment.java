@@ -41,6 +41,7 @@ public class ListarMascotaFragment extends Fragment {
         lbl_Mascota = (ListView) root.findViewById(R.id.lbl_Mascota);
         mDataBase = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
+        
 
         lbl_Mascota.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class SignUpActivity extends AppCompatActivity {
-    EditText edtRut, edtNombre, edtDireccion, edtTelefono, edtCorreo, edtContraseña;
+    EditText edtNombre, edtDireccion, edtTelefono, edtCorreo, edtContraseña;
     Button btnRegistrar, btnIngresar;
 
     FirebaseAuth firebaseAuth;
@@ -59,6 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if (!nombre.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty() && !correo.isEmpty() && !contraseña.isEmpty()) {
                     if (contraseña.length() >= 6) {
                         RegistrarUsuario();
+
                     }else {
                         Toast.makeText(SignUpActivity.this, "La contraseña debe tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
                     }
@@ -101,6 +102,7 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
                                 Toast.makeText(SignUpActivity.this, "Usuario Registrado Correctamente", Toast.LENGTH_SHORT).show();
+                                Limpiar();
 
                             } else {
                                 Toast.makeText(SignUpActivity.this, "No se pudieron crear los datos correctamente", Toast.LENGTH_SHORT).show();
@@ -114,16 +116,13 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    protected void onStart(){
-        super.onStart();
-
-        if(firebaseAuth.getCurrentUser() != null){
-            startActivity(new Intent(SignUpActivity.this, PerfilActivity.class));
-            finish();
-        }
+    private void Limpiar(){
+        edtNombre.setText("");
+        edtDireccion.setText("");
+        edtTelefono.setText("");
+        edtCorreo.setText("");
+        edtContraseña.setText("");
     }
-
-
 }
 
 

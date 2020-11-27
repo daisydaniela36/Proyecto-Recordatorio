@@ -34,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        edt_VCorreo = (EditText) findViewById(R.id.edt_VCorreo);
-        edt_VContraseña = (EditText) findViewById(R.id.edt_VContraseña);
+        edt_VCorreo = (EditText) findViewById(R.id.edt_RCorreo);
+        edt_VContraseña = (EditText) findViewById(R.id.edt_RContraseña);
         txt_Rcontraseña = (TextView) findViewById(R.id.txt_Rcontraseña);
         btnIngresar = (Button) findViewById(R.id.btn_Rcontraseña);
         btn_ir_crearCuenta=findViewById(R.id.btn_ir_crearCuenta);
@@ -91,4 +91,5 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
 }
