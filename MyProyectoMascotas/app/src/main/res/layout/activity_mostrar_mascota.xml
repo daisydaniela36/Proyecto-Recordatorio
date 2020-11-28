@@ -6,22 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MostrarMascotaActivity">
 
-    <LinearLayout
-        android:layout_width="386dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="12dp"
-        android:orientation="vertical"
-        android:paddingTop="50dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DATOS"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorLink="#FFFFFF"
-            android:textCursorDrawable="@color/common_google_signin_btn_text_dark_pressed"
-            android:textSize="24sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/perro" />
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="54dp"
+        android:background="#CD000000"
+        android:gravity="center"
+        android:orientation="vertical">
 
 
         <LinearLayout
@@ -30,25 +35,32 @@
             android:layout_marginTop="50dp"
             android:orientation="horizontal">
 
+
             <TextView
                 android:id="@+id/edt"
                 android:layout_width="64dp"
                 android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="NOMBRE:"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/white"
                 android:textColorLink="#FFFFFF" />
 
             <EditText
                 android:id="@+id/edt_Nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorPrimaryDark"
+                android:scrollbarThumbHorizontal="@color/white"
+                android:scrollbarThumbVertical="@color/white"
+                android:textColor="@color/white"
                 android:textColorHighlight="#FFFFFF"
-                android:textColorLink="#FFFFFF" />
+                android:textColorHint="#F4F1F1"
+                android:textColorLink="#FFFFFF"
+                android:textCursorDrawable="@color/white" />
 
         </LinearLayout>
 
@@ -60,19 +72,28 @@
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="64dp"
-                android:layout_height="45dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
+                android:textColorLink="#FFFFFF"
                 android:text="NUMERO CHIP:"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/edt_NumeroChip"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
-                android:textColor="@color/colorPrimaryDark" />
+                android:inputType="textPersonName"
+                android:scrollbarThumbHorizontal="@color/white"
+                android:scrollbarThumbVertical="@color/white"
+                android:textColor="@color/white"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#F4F1F1"
+                android:textColorLink="#FFFFFF"
+                android:textCursorDrawable="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -83,65 +104,28 @@
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="64dp"
-                android:layout_height="wrap_content"
+                android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
-                android:text="FECHA DE NACIMIENTO:"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColorLink="#FFFFFF"
+                android:text="FEC. NAC.:"
+                android:textColor="@color/white" />
 
             <EditText
                 android:id="@+id/edt_Fecha"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="date"
-                android:textColor="@color/colorPrimaryDark" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="ESPECIE:"
-                android:textColor="@color/colorPrimaryDark" />
-
-            <EditText
-                android:id="@+id/edt_Especie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorPrimaryDark" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="64dp"
-                android:layout_height="41dp"
-                android:layout_weight="1"
-                android:text="TIPO DE ANIMAL:"
-                android:textColor="@color/colorPrimaryDark" />
-
-            <Spinner
-                android:id="@+id/spn_tipoAnimal"
-                android:layout_width="211dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:entries="@array/tipoMascota"
-                android:scrollbarThumbHorizontal="@color/colorPrimaryDark" />
+                android:scrollbarThumbHorizontal="@color/white"
+                android:scrollbarThumbVertical="@color/white"
+                android:textColor="@color/white"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#F4F1F1"
+                android:textColorLink="#FFFFFF"
+                android:textCursorDrawable="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -150,20 +134,91 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView20"
-                android:layout_width="75dp"
+                android:id="@+id/textView18"
+                android:layout_width="64dp"
                 android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:textColorLink="#FFFFFF"
+                android:text="ESPECIE:"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/edt_Especie"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:scrollbarThumbHorizontal="@color/white"
+                android:scrollbarThumbVertical="@color/white"
+                android:textColor="@color/white"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#F4F1F1"
+                android:textColorLink="#FFFFFF"
+                android:textCursorDrawable="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="70dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:text="TIPO DE ANIMAL:"
+                android:textColor="@color/white"
+                android:textColorLink="#FFFFFF" />
+
+            <Spinner
+                android:id="@+id/spn_tipoAnimal"
+                style="@style/DialogSpinner"
+                android:layout_width="172dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FAF7F7"
+                android:foregroundTint="#E1DCDC"
+                android:spinnerMode="dialog"
+                android:layout_weight="2"
+                android:textColor="@color/white"
+                android:entries="@array/tipoMascota"
+                android:scrollbarThumbHorizontal="@color/white"
+                android:scrollbarThumbVertical="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="SEXO:"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/white"
+                android:textColorLink="#FFFFFF" />
 
             <Spinner
                 android:id="@+id/spn_sexo"
-                android:layout_width="217dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/DialogSpinner"
+                android:layout_width="172dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="2"
+                android:backgroundTint="#FAF7F7"
+                android:foregroundTint="#E1DCDC"
+                android:spinnerMode="dialog"
+                android:textColor="@color/white"
                 android:entries="@array/sexo"
-                android:scrollbarThumbHorizontal="@color/colorPrimaryDark" />
+                android:scrollbarThumbHorizontal="@color/white"
+                android:scrollbarThumbVertical="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -174,10 +229,16 @@
 
             <Button
                 android:id="@+id/btn_Editar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="EDITAR" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_fondo_color"
+                android:elevation="5dp"
+                android:text="EDITAR"
+                android:textColor="#fff"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -188,10 +249,16 @@
 
             <Button
                 android:id="@+id/btn_Eliminar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="ELIMINAR" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_fondo_color"
+                android:elevation="5dp"
+                android:text="ELIMINAR"
+                android:textColor="#fff"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -201,26 +268,17 @@
 
             <Button
                 android:id="@+id/btn_AgregarRecordatorio"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="AGREGAR RECORDATORIO" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_fondo_color"
+                android:elevation="5dp"
+                android:text="AGREGAR RECORDATORIO"
+                android:textColor="#fff"
+                android:textSize="16sp" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_Volver"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="VOLVER"
-                android:textColor="@color/colorPrimaryDark" />
-        </LinearLayout>
-
     </LinearLayout>
 
 </RelativeLayout>

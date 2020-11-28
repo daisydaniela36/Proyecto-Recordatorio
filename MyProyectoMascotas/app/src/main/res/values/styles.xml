@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#030304</item>
         <item name="colorPrimaryDark">#030304</item>
@@ -11,6 +11,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+
 
     <style name="DialogSpinner" parent="@android:style/Widget.Holo.Spinner">
         <item name="android:spinnerItemStyle">@style/MySpinnerItem</item>

@@ -19,7 +19,8 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".RecordatorioActivity" />
-        <activity android:name=".MostrarMascotaActivity" />
+        <activity android:name=".MostrarMascotaActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".NotificationMessage" />
         <activity android:name=".CreateEvent" />
         <activity android:name=".LoginActivity" />

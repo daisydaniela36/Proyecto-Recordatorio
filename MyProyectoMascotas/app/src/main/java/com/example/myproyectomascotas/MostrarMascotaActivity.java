@@ -1,11 +1,14 @@
 package com.example.myproyectomascotas;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +45,12 @@ public class MostrarMascotaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_mascota);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
         edt_Cnombre = (EditText) findViewById(R.id.edt_Nombre);
         edt_CnumeroChip = (EditText) findViewById(R.id.edt_NumeroChip);
@@ -116,10 +125,26 @@ public class MostrarMascotaActivity extends AppCompatActivity {
                 String id2 = firebaseAuth.getCurrentUser().getUid();
                 mDataBase.child("usuario").child(id2).child("mascota").child(id).removeValue();
 
+                Intent intent = new Intent(MostrarMascotaActivity.this, PerfilActivity.class);
+                startActivity(intent);
 
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                Intent intent = new Intent(this, PerfilActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public static int getIndexSpinner(Spinner spinner, String myString)
