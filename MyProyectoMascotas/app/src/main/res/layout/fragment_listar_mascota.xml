@@ -23,7 +23,12 @@
             android:id="@+id/lbl_Mascota"
             android:layout_width="match_parent"
             android:layout_height="583dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:text="#FFFFFF" />
+
+
+
+
 
     </LinearLayout>
 </RelativeLayout>

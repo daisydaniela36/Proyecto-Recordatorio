@@ -4,8 +4,6 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -15,10 +13,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".PerfilActivity"
-            android:label="@string/title_activity_perfil"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ResetPasswordActivity" />
-        <activity android:name=".RecordatorioActivity" />
+        <activity android:name=".RecordatorioActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MostrarMascotaActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".NotificationMessage" />

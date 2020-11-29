@@ -1,6 +1,7 @@
 package com.example.myproyectomascotas.ui.listarMascota;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,7 @@ public class ListarMascotaFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
     ListView lbl_Mascota;
     private DatabaseReference mDataBase;
+    private static int save = -1;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_listar_mascota, container, false);
@@ -41,11 +43,15 @@ public class ListarMascotaFragment extends Fragment {
         lbl_Mascota = (ListView) root.findViewById(R.id.lbl_Mascota);
         mDataBase = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
+
+
         
 
         lbl_Mascota.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                lbl_Mascota.getChildAt(position).setBackgroundColor(Color.parseColor("#D65815"));
 
                 Mascota m = lista_mascota.get(position);
 

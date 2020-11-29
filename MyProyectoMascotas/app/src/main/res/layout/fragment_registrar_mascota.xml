@@ -134,13 +134,17 @@
             <Spinner
                 android:id="@+id/spn_tipoAnimal"
                 style="@style/DialogSpinner"
-                android:layout_width="183dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="30dp"
-                android:layout_weight="1"
+                android:layout_width="172dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="2"
+                android:backgroundTint="#FAF7F7"
+                android:foregroundTint="#E1DCDC"
+                android:spinnerMode="dialog"
+                android:textColor="@color/white"
                 android:entries="@array/tipoMascota"
                 android:scrollbarThumbHorizontal="@color/white"
-                android:textColor="@color/white" />
+                android:scrollbarThumbVertical="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -161,13 +165,17 @@
             <Spinner
                 android:id="@+id/spn_sexo"
                 style="@style/DialogSpinner"
-                android:layout_width="183dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="30dp"
-                android:layout_weight="1"
+                android:layout_width="172dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="2"
+                android:backgroundTint="#FAF7F7"
+                android:foregroundTint="#E1DCDC"
+                android:spinnerMode="dialog"
+                android:textColor="@color/white"
                 android:entries="@array/sexo"
                 android:scrollbarThumbHorizontal="@color/white"
-                android:textColor="@color/white" />
+                android:scrollbarThumbVertical="@color/white" />
         </LinearLayout>
 
         <LinearLayout

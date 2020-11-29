@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".CreateEvent">
 
-
-    <RelativeLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/perro" />
+
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 
-        <TextView
-            android:id="@+id/tv_record"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="RECORDATORIO"
-            android:textColor="@color/green"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="54dp"
+        android:background="#CD000000"
+        android:gravity="center"
+        android:orientation="vertical">
 
 
-    <EditText
+        <EditText
         android:id="@+id/editext_message"
         android:layout_width="match_parent"
         android:layout_marginHorizontal="20dp"
         android:padding="10dp"
         android:layout_marginTop="10dp"
         android:hint="Ingrese Mensaje"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"/>
 
     <Spinner
@@ -65,13 +68,16 @@
         android:id="@+id/btn_date"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="25dp" />
-<Button
-    android:layout_width="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginTop="30dp"
-    android:id="@+id/btn_done"
-    android:textColor="@color/white"
-    android:text="Guardar"
-    android:background="@color/colorPrimary"
-    android:layout_height="wrap_content"/>
-</LinearLayout>
+
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@color/red"
+            android:text="Guardar"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</RelativeLayout>
