@@ -18,5 +18,61 @@
         android:background="#CD000000"
         android:gravity="center"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="143dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/perroagua"
+                android:padding="50dp"
+                android:text="¿Cada cuánto debo de cambiar el agua de mi mascota?"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="143dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/perrobano"
+                android:padding="50dp"
+                android:text="¿Cada cuánto bañar a nuestras mascotas?"
+                android:textColor="#020201"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="143dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/comida"
+                android:padding="50dp"
+                android:text="¿Cada cuanto se cambia la comida de nuestras mascotas?"
+                android:textColor="#020101"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="143dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/fruta"
+                android:padding="50dp"
+                android:text="Alimentos prohibidos para nuestras mascotas"
+                android:textColor="#040303"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
