@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E1CBCB"
     tools:context=".ui.listarMascota.ListarMascotaFragment">
 
     <ImageView
@@ -19,15 +20,30 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/lbl_Mascota"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="583dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginRight="20dp"
+            android:paddingBottom="10dp"
+            android:text="Seleccione para ver detalles                                              o agregar reocordatorio"
             android:textAlignment="center"
-            android:text="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-
+            <ListView
+                android:id="@+id/lbl_Mascota"
+                android:layout_width="match_parent"
+                android:layout_height="583dp"
+                android:dividerHeight="10dp"
+                android:textAlignment="center" />
+        </LinearLayout>
 
 
     </LinearLayout>

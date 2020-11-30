@@ -39,19 +39,7 @@
             android:layout_marginBottom="30dp"
             android:textSize="16dp"
             android:text="Inciar Sesión"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:id="@+id/inicar_facebook"
-            android:background="@drawable/btn_facebook"
-            android:layout_marginLeft="20dp"
-            android:textColor="#fff"
-            android:elevation="5dp"
-            android:layout_marginBottom="30dp"
-            android:textSize="16dp"
-            android:text="Inciar con Facebook"
-            android:textAllCaps="false"/>
+
 
     </LinearLayout>
 

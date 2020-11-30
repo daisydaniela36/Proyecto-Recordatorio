@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -41,18 +42,17 @@ public class ListarMascotaFragment extends Fragment {
 
 
         lbl_Mascota = (ListView) root.findViewById(R.id.lbl_Mascota);
+
+
         mDataBase = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
-
 
         
 
         lbl_Mascota.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
-                lbl_Mascota.getChildAt(position).setBackgroundColor(Color.parseColor("#D65815"));
-
+                
                 Mascota m = lista_mascota.get(position);
 
                 Intent i = new Intent(getActivity(), MostrarMascotaActivity.class);
@@ -68,6 +68,7 @@ public class ListarMascotaFragment extends Fragment {
                 i.putExtra("sexo", m.getSexo());
 
                 System.out.println(m.getId());
+
 
                 startActivity(i);
 
@@ -91,7 +92,7 @@ public class ListarMascotaFragment extends Fragment {
                     Mascota m = objSnaoshot.getValue(Mascota.class);
                     lista_mascota.add(m);
 
-                    arrayadaptermascota = new ArrayAdapter<Mascota>(getActivity(), android.R.layout.simple_list_item_1, lista_mascota);
+                    arrayadaptermascota = new ArrayAdapter<Mascota>(getContext(), R.layout.list_item, lista_mascota);
                     lbl_Mascota.setAdapter(arrayadaptermascota);
                 }
             }
